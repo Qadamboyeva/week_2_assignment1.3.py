@@ -1,7 +1,3 @@
-# Collect: Book title, price, and quantity for 3 books
-# Get customer information: Name, is_faculty_staff (yes/no), 
-# is_textbook_order (yes/no), number_of_books (total quantity)
-
 book_1_title=input("Title of the first book: ")
 price_1_book=float(input("First book's price: "))
 book_1_quantity=int(input("Quantity of the first book: "))
@@ -16,22 +12,16 @@ book_3_quantity=int(input("Quantity of the third book: "))
 
 print("\n---Customer information---")
 name=input("Name: ")
-is_faculty_staff=input("Are you a faculty staff?(yes/no: ").lower(25) =="yes"
-is_textbook_order=input("Is this a textbook order?(yes/no): ")
-bulk_discount=input("Is this a bulk discount order? (yes/ no): ")
+is_faculty_staff=input("Are you a faculty staff?(yes/no: ").lower() =="yes"
+is_textbook_order=input("Is this a textbook order?(yes/no): ").lower()=="yes"
+bulk_discount=input("Is this a bulk discount order? (yes/ no): ").lower()=="yes"
 number_of_books= book_1_quantity + book_2_quantity + book_3_quantity
 
-# Discount Rules: Calculate eligibility and amounts for each discount type:
+subtotal=(price_1_book*book_1_quantity)+(price_2_book*book_2_quantity)+(price_3_book*book_3_quantity)
 
-# Textbook discount: 25% off subtotal (eligible if is_textbook_order is True)
-# Bulk book discount: 8% off (eligible if number_of_books >= 10)
-
-subtotal=sum((price_1_book*book_1_quantity)), ((price_2_book*book_2_quantity)), ((price_3_book*book_3_quantity))
-# Faculty/Staff discount: 20% off subtotal (eligible if is_faculty_staff is True)
-
-faculty_discount_eligible = is_faculty_staff == 'yes'
-textbook_discount_eligible = is_textbook_order == 'yes'
-bulk_discount_eligible = bulk_discount == 'yes'
+faculty_discount_eligible = is_faculty_staff 
+textbook_discount_eligible = is_textbook_order 
+bulk_discount_eligible = bulk_discount
 faculty_discount_amount = faculty_discount_eligible * subtotal * 0.2
 textbook_discount_amount=textbook_discount_eligible*subtotal*.25
 bulk_discount_amount=bulk_discount_eligible*subtotal*.08
@@ -59,3 +49,4 @@ print(f'Shipping: 20000')
 print(f'\nTotal amount due: {(subtotal_after_discount + tax + small_order_fee + 20000)}')
 print(f'\n{"="*40}')
 print("Thank you for your purchase!")
+
